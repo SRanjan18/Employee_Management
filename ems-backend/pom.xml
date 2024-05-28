@@ -58,6 +58,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>ems-backend</finalName>
 	</build>
 
 </project>
