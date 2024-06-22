@@ -78,7 +78,7 @@ function pageTitle(){
                     <div className="card-body">
                         <form>
                             <div className='form-group mb-2'>
-                                <label className='form-label'>First Name:</label>
+                                <label className='form-label'>First Name :</label>
                                 <input
                                     type='text'
                                     placeholder='Enter Employee FirstName'
@@ -93,7 +93,7 @@ function pageTitle(){
     </div>}
                             </div>
                             <div className='form-group mb-2'>
-                                <label className='form-label'>Last Name:</label>
+                                <label className='form-label'>Last Name :</label>
                                 <input
                                     type='text'
                                     placeholder='Enter Employee LastName'
@@ -108,7 +108,7 @@ function pageTitle(){
     </div>}
                             </div>
                             <div className='form-group mb-2'>
-                                <label className='form-label'>Email:</label>
+                                <label className='form-label'>Email :</label>
                                 <input
                                     type='text'
                                     placeholder='Enter Employee Email'
