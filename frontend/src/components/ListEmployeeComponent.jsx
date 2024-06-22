@@ -45,6 +45,8 @@ function updateEmployee(id){
     navigator(`/edit-employee/${id}`)
 }
 function deleteEmployeebyid(id){
+    alert("want to delete??");
+    alert("really\ to delete??");
     deleteEmployee(id).then((response)=>{
         console.log(response.data);
         getAllEmployees();
