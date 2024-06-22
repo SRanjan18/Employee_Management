@@ -1,0 +1,45 @@
+name: Deploy React App to GitHub Pages
+
+on:
+  push:
+    branches:
+      - frontend/Actions  
+  workflow_dispatch:  
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_PAT }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2 
+        with:
+          node-version: '22.x'
+      - name: Set Git config
+        run: |
+          git config --global user.email "soumya18ranjan.sr@gmail.com"
+          git config --global user.name "Soumya Ranjan"
+      - name: Install dependencies
+        run: npm install
+        working-directory: ./frontend
+
+      - name: Build project
+        run: npm run build
+        working-directory: ./frontend
+
+      - name: Set up .git-credentials
+        run: |
+          echo "https://${{ secrets.GH_PAT }}:@github.com" > ~/.git-credentials
+          git config --global credential.helper store
+      - name: Deploy to GitHub Pages
+        run: npx gh-pages -d dist -b frontend/Actions
+        working-directory: ./frontend
