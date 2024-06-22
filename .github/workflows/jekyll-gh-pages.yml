@@ -44,6 +44,12 @@ jobs:
           echo "https://${{ secrets.GH_PAT }}:@github.com" > ~/.git-credentials
           git config --global credential.helper store
 
+      # - name: Deploy to GitHub Pages
+      #   run: npx gh-pages -d dist
+      #   working-directory: ./frontend
       - name: Deploy to GitHub Pages
-        run: npx gh-pages -d dist
+        run: |
+          git add .
+          git commit -m "Deploy to testing branch"
+          git push origin testing
         working-directory: ./frontend
