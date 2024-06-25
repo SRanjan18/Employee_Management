@@ -11,7 +11,8 @@ function App() {
   return (
   //  <HelloWorld/>
   <>
-     <BrowserRouter>
+     <BrowserRouter basename="/EMSystem">
+     
       <HeaderComponent />
       <Routes>
 <Route path='/' element={<ListEmployeeComponent/>}></Route>
