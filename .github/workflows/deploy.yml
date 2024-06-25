@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - frontendActions  # Trigger deployment on push to 'actions' branch
+      - actionsfrontend  # Trigger deployment on push to 'actions' branch
   workflow_dispatch:
 permissions:
   contents: read
@@ -26,13 +26,24 @@ jobs:
       - name: Install dependencies
         run: npm install
         working-directory: ./frontend
+
       - name: Build project
         run: npm run build
         working-directory: ./frontend
+      
+      - name: List contents of frontend directory for debugging
+        run: ls -al ./frontend
+        working-directory: ./
+
+      - name: List contents of build directory for debugging
+        run: ls -al ./frontend/build
+        working-directory: ./
+
       - name: Upload to artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./frontend/build
+
   deploy:
     runs-on: ubuntu-latest
     needs: build
