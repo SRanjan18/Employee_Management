@@ -31,13 +31,7 @@ jobs:
         run: npm run build
         working-directory: ./frontend
       
-      - name: List contents of frontend directory for debugging
-        run: ls -al ./frontend
-        working-directory: ./
-
-      - name: List contents of build directory for debugging
-        run: ls -al ./frontend/build
-        working-directory: ./
+    
 
       - name: Upload to artifact
         uses: actions/upload-pages-artifact@v3
